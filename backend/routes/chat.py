@@ -14,7 +14,7 @@ def chat_on_all_reports():
     return get_llm_response(data)
 
 
-@chat_blueprint.route('/<namespace>', methods=['POST','OPTIONS'])
+@chat_blueprint.route('/<namespace>/', methods=['POST','OPTIONS'])
 def chat_on_single_report(namespace):
     if request.method == 'OPTIONS':
      return {}

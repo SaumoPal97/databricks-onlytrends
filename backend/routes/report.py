@@ -49,7 +49,7 @@ def get_or_create_report():
         }
     )
 
-    # trigger_job_run(data)
+    trigger_job_run(data)
     
     return {
       "data": [report.dict()]
