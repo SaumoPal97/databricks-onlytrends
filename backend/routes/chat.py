@@ -9,15 +9,13 @@ def chat_on_all_reports():
     if data is None:
         return
 
-    chat_history = data.get('chat_history')
-    return get_llm_response(chat_history)
+    return get_llm_response(data)
 
 
-@chat_blueprint.route('/<namspace>', methods=['POST'])
-def chat_on_single_report(namspace):
+@chat_blueprint.route('/<namespace>', methods=['POST'])
+def chat_on_single_report(namespace):
     data = request.json
     if data is None:
         return
 
-    chat_history = data.get('chat_history')
-    return get_llm_response(chat_history, namspace)
+    return get_llm_response(data, namespace)
