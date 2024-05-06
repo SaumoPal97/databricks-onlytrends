@@ -41,8 +41,8 @@ const ReportUpload = () => {
   const onSubmit = async (values) => {
     const namespace = values.url.split("/").reverse()[0].split(".")[0];
     try {
-      await fetch(`${API_URL}/report`, {
-        method: "PUT",
+      await fetch(`${API_URL}/report/`, {
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },

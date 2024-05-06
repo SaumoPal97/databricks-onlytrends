@@ -4,8 +4,10 @@ from flask import Blueprint, request # type: ignore
 
 report_blueprint = Blueprint('report', __name__)
 
-@report_blueprint.route('/', methods=['GET','POST'])
+@report_blueprint.route('/', methods=['GET','POST','OPTIONS'])
 def get_or_create_report():
+  if request.method == 'OPTIONS':
+     return {}
   if request.method == 'GET':
     tags = request.args.get('tags')
     if tags:
@@ -47,14 +49,16 @@ def get_or_create_report():
         }
     )
 
-    trigger_job_run(data)
+    # trigger_job_run(data)
     
     return {
       "data": [report.dict()]
     }
 
-@report_blueprint.route('/<id>', methods=['GET', 'PUT'])
+@report_blueprint.route('/<id>', methods=['GET', 'PUT','OPTIONS'])
 def view_or_update_report(id):
+  if request.method == 'OPTIONS':
+        return {}
   if request.method == 'GET':
     report = Report.prisma().find_unique(
         where={

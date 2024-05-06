@@ -10,7 +10,7 @@ export const API_URL = import.meta.env.VITE_API_URL;
 export const getUnique = (data) =>
   Object.values(
     data.reduce((c, e) => {
-      if (!c[e.name]) c[e.name] = e;
+      if (!c[e.id]) c[e.id] = e;
       return c;
     }, {})
   );

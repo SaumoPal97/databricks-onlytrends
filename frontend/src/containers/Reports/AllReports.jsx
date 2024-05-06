@@ -9,9 +9,7 @@ const AllReports = () => {
     const fetchContents = async () => {
       const response = await fetch(`${API_URL}/report`);
       const res = await response.json();
-      setContents((prevState) => {
-        return getUnique([...prevState, ...res.data]);
-      });
+      setContents(getUnique(res.data));
     };
     fetchContents();
   }, []);

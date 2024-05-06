@@ -5,7 +5,7 @@ import { API_URL } from "@/lib/utils";
 import ReportCard from "@/components/ReportCard";
 
 const Home = () => {
-  const tags = ["technology", "design", "crypto", "ai"];
+  const tags = ["finance", "technology", "crypto", "ai"];
   const [taggedContent, setTaggedContent] = useState({});
 
   useEffect(() => {
